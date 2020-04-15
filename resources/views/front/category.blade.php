@@ -58,7 +58,7 @@
 		                            </select>
 		                        </div>
 		                    </div>
-		                    <span class="s-text8 p-t-5 p-b-5"> Showing 1–12 of 16 results </span>
+		                    <!-- <span class="s-text8 p-t-5 p-b-5"> Showing 1–12 of 16 results </span> -->
 		                </div>
 
 		                <div class="row">

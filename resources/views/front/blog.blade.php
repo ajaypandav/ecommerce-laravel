@@ -49,10 +49,7 @@
                         @endforeach
                     </div>
 
-                    <div class="pagination flex-m flex-w p-r-50">
-                        <a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
-                        <a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
-                    </div>
+                    {{ $blogs->links('front.include.pagination', ['data' => $blogs, 'limit' => 7, 'request' => $request]) }}
                 </div>
                 @include('front.include.blogSidebar')
             </div>

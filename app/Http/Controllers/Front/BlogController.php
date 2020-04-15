@@ -8,22 +8,23 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $sidebar = $this->sidebar();
 
-        $blogs = DB::table('blogs')->where('status', 1)->orderBy('created_at', 'DESC')->get();
+        $blogs = DB::table('blogs')->where('status', 1)->orderBy('created_at', 'DESC')->paginate(5);
 
         $data = [
             'blogs'      => $blogs,
             'categories' => $sidebar['categories'],
             'tags'       => $sidebar['tags'],
+            'request'    => $request,
         ];
 
         return view('front.blog')->with($data);
     }
 
-    public function category($url)
+    public function category($url, Request $request)
     {
         $sidebar = $this->sidebar();
 
@@ -35,12 +36,13 @@ class BlogController extends Controller
                 ->where('blog_cids.bcid', $category->id)
                 ->where('blogs.status', 1)
                 ->orderBy('blogs.created_at', 'DESC')
-                ->get();
+                ->paginate(5);
 
             $data = [
                 'blogs'      => $blogs,
                 'categories' => $sidebar['categories'],
                 'tags'       => $sidebar['tags'],
+                'request'    => $request,
             ];
 
             return view('front.blog')->with($data);
@@ -49,7 +51,7 @@ class BlogController extends Controller
         }
     }
 
-    public function tag($tag)
+    public function tag($tag, Request $request)
     {
         $sidebar = $this->sidebar();
 
@@ -58,12 +60,13 @@ class BlogController extends Controller
             ->where('blog_tags.tag', $tag)
             ->where('blogs.status', 1)
             ->orderBy('blogs.created_at', 'DESC')
-            ->get();
+            ->paginate(5);
 
         $data = [
             'blogs'      => $blogs,
             'categories' => $sidebar['categories'],
             'tags'       => $sidebar['tags'],
+            'request'    => $request,
         ];
 
         return view('front.blog')->with($data);

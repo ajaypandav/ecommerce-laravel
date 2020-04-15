@@ -39,7 +39,7 @@
 	            <p class="s-text8 p-t-10">{{ $product->tag_line }}</p>
 
 	            <div class="p-t-33 p-b-60">
-	                <div class="flex-m flex-w p-b-10">
+	                <!-- <div class="flex-m flex-w p-b-10">
 	                    <div class="s-text15 w-size15 t-center">
 	                        Size
 	                    </div>
@@ -66,7 +66,7 @@
 	                            <option>Blue</option>
 	                        </select>
 	                    </div>
-	                </div>
+	                </div> -->
 	                <div class="flex-r-m flex-w p-t-10">
 	                    <div class="w-size16 flex-m flex-w">
 	                        <div class="flex-w bo5 of-hidden m-r-22 m-t-10 m-b-10">
@@ -88,7 +88,7 @@
 	            </div>
 	            <div class="p-b-45">
 	                <span class="s-text8 m-r-35">SKU: {{ $product->product_id }}</span>
-	                <span class="s-text8">Categories: Mug, Design</span>
+	                <span class="s-text8">Categories: {{ $category->title }}</span>
 	            </div>
 
 	            <div class="wrap-dropdown-content bo6 p-t-15 p-b-14 active-dropdown-content">
